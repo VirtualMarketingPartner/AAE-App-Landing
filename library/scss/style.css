@@ -20,6 +20,19 @@ h1, h2, h3, h4, h5 {
   --white: #fff;
 }
 
+body {
+  color: var(--black);
+}
+
+body a {
+  color: var(--blue);
+}
+
+/* BG Colors */
+.bg-gradient {
+  background-image: radial-gradient(#ffffff 40%, rgba(235, 169, 0, 0.22) 84%) !important;
+}
+
 button,
 .button,
 .btn {
@@ -35,22 +48,21 @@ button:hover,
   background: var(--blue-dk);
 }
 
-section {
-  padding: 100px 0;
-  height: 100%;
-  background-image: radial-gradient(#ffffff 40%, rgba(235, 169, 0, 0.22) 84%);
-}
-
 .container {
   max-width: 1200px;
   padding: 0 5%;
+}
+
+section {
+  padding: 50px 0;
+  height: 100%;
 }
 
 .card {
   padding: 20px;
   border-radius: 10px;
   border: none;
-  background: white;
+  background: var(--white);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }
 
@@ -58,4 +70,13 @@ section {
   width: 150px;
   height: 75px;
   margin: 10px auto;
+}
+
+#login {
+  margin-top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
