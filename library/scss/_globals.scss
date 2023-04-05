@@ -1,0 +1,25 @@
+
+section{
+    padding: 100px 0;
+    height: 100%;
+    background-image: radial-gradient(#ffffff 40%,rgba(235,169,0,0.22) 84%);
+}
+
+.container{
+    max-width: 1200px;
+    padding: 0 5%;
+}
+
+.card{
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,.15);
+}
+
+#logo{
+    width: 150px; 
+    height: 75px;
+    margin: 10px auto;
+}

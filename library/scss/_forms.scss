@@ -1,0 +1,12 @@
+button,
+.button,
+.btn{
+    border-radius: 20px;
+    padding: 5px 20px;
+    background: var(--blue);
+    border-color: transparent;
+
+    &:hover{
+        background: var(--blue-dk);
+    }
+}
