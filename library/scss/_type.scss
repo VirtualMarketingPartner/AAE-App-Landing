@@ -10,4 +10,50 @@ body{
 
 h1, h2, h3, h4, h5{
     font-weight: 800;
+    line-height: 1.5;
+}
+
+.light{
+    font-weight: 400;
+}
+
+.small{
+    font-size: 80%;
+}
+
+.btn{
+    font-size: 120%;
+    margin: 20px 0;
+    border-radius: 20px;
+    padding: 5px 20px;
+    background: var(--blue);
+    border-color: transparent;
+
+    &:hover,
+    &:active{
+        background: var(--blue-dk);
+        border-color: transparent;
+    }
+
+    &.btn-secondary{
+        background: var(--gold);
+        color: var(--blue-dk);
+        border-color: transparent;
+
+        &:hover,
+        &:active{
+            background: var(--gold-lt);
+            border-color: transparent;
+        }
+    }
+
+    &.btn-lg{
+        font-weight: bold;
+        padding: 10px 30px;
+        border-radius: 30px;
+    }
+
+    &:nth-of-type(even){
+        margin: 20px 10px;
+    }
 }

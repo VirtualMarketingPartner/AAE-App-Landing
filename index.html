@@ -13,23 +13,32 @@
 
 <body>
 
-<section class="container-fluid bg-gradient" >
+<section class="container-fluid" >
 	<div class="container" >
-		<div class="col-12 col-lg-6 offset-lg-3" >
-			<div class="card text-center" id="login" >
-				<img src="library/img/AAN_logo.webp" alt="Allergy Asthma Network Logo" id="logo" />
-				<h1>Login</h1>
-				<form class="row">
-					<div class="form-field col-12 col-lg-8">
-						<label for="emailAddress" class="form-label" >Email address</label>
-						<input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" >
+		<div class="card" id="login-wrapper" >
+			<div class="row" >
+				<div class="col-12 col-md-6" >
+					<div id="login" >
+						<img src="library/img/AAN_logo.webp" alt="Allergy Asthma Network Logo" id="logo" />
+						<h2>Have you used this tool before?</h2>
+
+						<a href="#" class="btn btn-secondary btn-lg" >New User</a>
+						<a href="#" class="btn btn-primary btn-lg" >Returning User</a>
+						
+						<p class="text-grey small mt-4" >By continuing, you agree to the Allergy & Asthma Network <a href="#" target="_blank" >Terms and Conditions of Use</a>.</p>
 					</div>
-					<div class="form-field col-12 col-lg-4" >
-						<button type="submit" class="btn btn-primary">Submit</button>
+				</div><!-- .col -->
+				<div class="col-12 col-md-6" >
+					<div id="instructions" >
+						<h1>Questions?</h1>
+						<p>Please contact us at <a href="mailto:research@allergyasthmanetwork.org" >research@allergyasthmanetwork.org</a> if you have any questions or comments. You can also forward questions or comments to Mitu Patel, Health Data Analyst at <a href="#" >mpatel@allergyasthmanetwork.org</a>. Any correspondences from Allergy & Asthma Network to you will be from these email addresses. Please check your junk folders to make sure you don't miss anything from us.</p>
+
+						<h4>Stay Informed</h4>
+						<p>Consider joining Allergy & Asthma Network's research e-newsletter list to stay connected and learn about research in the pipeline. <a href="#" >Click here to subscribe</a>.</p>
 					</div>
-				</form>
-			</div>
-		</div><!-- .col -->
+				</div><!-- .col -->
+			</div><!-- .row -->
+		</div><!-- .card -->
 	</div><!-- .container -->
 </section><!-- .container-fluid -->
 

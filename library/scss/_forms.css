@@ -1,0 +1,23 @@
+input[type='email'] {
+  border: none;
+  position: relative;
+  border-radius: 0;
+  border-bottom: 1px solid var(--grey-lt);
+}
+
+input[type='email']:focus ~ .input-selector {
+  width: 100%;
+}
+
+.input-selector {
+  display: block;
+  width: 0;
+  height: 4px;
+  transition: all ease-in-out .2s;
+  background: var(--blue-dk);
+  border-radius: 2px;
+}
+
+label {
+  font-weight: bold;
+}

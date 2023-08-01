@@ -1,9 +1,14 @@
 :root{
-    --gold: #EBA900 ;
+    --gold: #EBA900;
+    --gold-lt: #fcbe23;
     --blue: #4e738a;
     --blue-dk: #415364;
     
     --black: #3a3a3a;
+    --grey: #a3a3a3;
+    --grey-dk: #434343;
+    --grey-md: #6C6C6C;
+    --grey-lt: #ccc;
     --white: #fff;
 }
 
@@ -16,8 +21,6 @@ body{
 }
 
 
-
-/* BG Colors */
-.bg-gradient{
-    background-image: radial-gradient(#ffffff 40%,rgba(235,169,0,0.22) 84%) !important;
+.text-grey{
+    color: var(--grey);
 }
