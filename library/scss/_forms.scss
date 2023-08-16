@@ -1,12 +1,68 @@
-button,
-.button,
-.btn{
-    border-radius: 20px;
-    padding: 5px 20px;
-    background: var(--blue);
-    border-color: transparent;
+form.fsForm{
+ margin: 0 auto !important;   
+ padding: 0 !important;
+ font-size: 16px;
+ line-height: 1.6;
+ font-family: 'Raleway',Helvetica,Arial,Lucida,sans-serif;
 
-    &:hover{
-        background: var(--blue-dk);
+
+    div.fsSectionHeader{
+        padding: 0;
+        background: transparent;
+        
+        h2{
+            font-weight: 800 !important;
+        }
+     }
+
+    .fsLabel{
+        font-weight: bold;
     }
+
+    .fsRowBody input[type=radio], 
+    .fsRowBody input[type=checkbox]{
+        overflow: visible;
+        top: 0;
+    }
+    .fsRowBody input[type=radio]:checked:before{
+        border-color: var(--blue);
+    }
+
+    .fsRowBody input[type=checkbox]:checked:before{
+        background-color: var(--gold);
+    }
+
+    .fsSubmit input.fsSubmitMultipage,
+    .fsPreviousButton, 
+    .fsNextButton{
+        padding: 15px 30px !important;
+        border-radius: 50px !important;
+        background-color: var(--blue) !important;
+    }
+
+    .fsSubmit{
+        margin-top: 0;
+        padding: 0;
+    }
+
+    .fsProgress{
+        div.fsProgressBarContainer{
+            height: 40px;
+            border-radius: 50px;
+            overflow:hidden;
+            background-color: var(--grey-lt);
+        }
+        div.fsProgressText{
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-top: -32px;
+            color: var(--black);
+        }
+
+        div.fsProgressBar{
+            background-color: var(--gold-lt);
+        }
+    }
+
 }

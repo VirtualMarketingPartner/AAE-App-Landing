@@ -5,6 +5,7 @@
 
 body {
   font-size: 16px;
+  line-height: 1.6;
   font-family: 'Raleway',Helvetica,Arial,Lucida,sans-serif;
 }
 
@@ -12,11 +13,80 @@ h1, h2, h3, h4, h5 {
   font-weight: 800;
 }
 
+h3 {
+  font-size: 150%;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.light {
+  font-weight: 400;
+}
+
+.small {
+  font-size: 80%;
+}
+
+.btn {
+  font-size: 100%;
+  margin: 20px 0;
+  border-radius: 20px;
+  padding: 5px 20px;
+  background: var(--blue);
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.btn:hover, .btn:active {
+  background: var(--blue-dk);
+  border-color: transparent;
+}
+
+.btn.btn-secondary {
+  background: var(--gold);
+  color: var(--blue-dk);
+  border-color: transparent;
+}
+
+.btn.btn-secondary:hover, .btn.btn-secondary:active {
+  background: var(--gold-lt);
+  border-color: transparent;
+}
+
+.btn.simple {
+  width: auto;
+  display: inline-block;
+  background: transparent;
+  color: var(--blue-dk);
+}
+
+.btn.simple.underline {
+  text-decoration: underline;
+}
+
+.btn.btn-lg {
+  font-weight: 500;
+  padding: 10px 30px;
+  border-radius: 30px;
+}
+
+.btn:nth-of-type(even) {
+  margin: 20px 10px;
+}
+
 :root {
   --gold: #EBA900;
+  --gold-lt: #fcbe23;
   --blue: #4e738a;
   --blue-dk: #415364;
   --black: #3a3a3a;
+  --grey: #a3a3a3;
+  --grey-dk: #434343;
+  --grey-md: #6C6C6C;
+  --grey-lt: #ccc;
   --white: #fff;
 }
 
@@ -28,24 +98,83 @@ body a {
   color: var(--blue);
 }
 
-/* BG Colors */
-.bg-gradient {
-  background-image: radial-gradient(#ffffff 40%, rgba(235, 169, 0, 0.22) 84%) !important;
+.text-grey {
+  color: var(--grey);
 }
 
-button,
-.button,
-.btn {
-  border-radius: 20px;
-  padding: 5px 20px;
-  background: var(--blue);
-  border-color: transparent;
+form.fsForm {
+  margin: 0 auto !important;
+  padding: 0 !important;
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: 'Raleway',Helvetica,Arial,Lucida,sans-serif;
 }
 
-button:hover,
-.button:hover,
-.btn:hover {
-  background: var(--blue-dk);
+form.fsForm div.fsSectionHeader {
+  padding: 0;
+  background: transparent;
+}
+
+form.fsForm div.fsSectionHeader h2 {
+  font-weight: 800 !important;
+}
+
+form.fsForm .fsLabel {
+  font-weight: bold;
+}
+
+form.fsForm .fsRowBody input[type=radio],
+form.fsForm .fsRowBody input[type=checkbox] {
+  overflow: visible;
+  top: 0;
+}
+
+form.fsForm .fsRowBody input[type=radio]:checked:before {
+  border-color: var(--blue);
+}
+
+form.fsForm .fsRowBody input[type=checkbox]:checked:before {
+  background-color: var(--gold);
+}
+
+form.fsForm .fsSubmit input.fsSubmitMultipage,
+form.fsForm .fsPreviousButton,
+form.fsForm .fsNextButton {
+  padding: 15px 30px !important;
+  border-radius: 50px !important;
+  background-color: var(--blue) !important;
+}
+
+form.fsForm .fsSubmit {
+  margin-top: 0;
+  padding: 0;
+}
+
+form.fsForm .fsProgress div.fsProgressBarContainer {
+  height: 40px;
+  border-radius: 50px;
+  overflow: hidden;
+  background-color: var(--grey-lt);
+}
+
+form.fsForm .fsProgress div.fsProgressText {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: -32px;
+  color: var(--black);
+}
+
+form.fsForm .fsProgress div.fsProgressBar {
+  background-color: var(--gold-lt);
+}
+
+body {
+  background-color: #f5f5f5;
+  background-image: url(../img/abstract_bg_02.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .container {
@@ -60,23 +189,49 @@ section {
 
 .card {
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   background: var(--white);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+.card.body-card {
+  padding: 40px 5%;
+}
+
+h3 {
+  margin-top: 40px;
+}
+
+#login-wrapper {
+  margin: 5% auto;
+  padding: 0;
 }
 
 #logo {
   width: 150px;
-  height: 75px;
-  margin: 10px auto;
+  height: auto;
+  margin-bottom: 40px;
 }
 
 #login {
-  margin-top: 50%;
-  transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
+  padding: 50px;
+}
+
+#instructions {
+  height: 100%;
+  padding: 50px;
+  color: var(--white);
+  background: var(--blue-dk);
+  border-radius: 0 5px 5px 0;
+}
+
+#instructions a {
+  color: var(--off-white);
+}
+
+@media all and (max-width: 992px) {
+  #instructions {
+    padding: 50px;
+  }
 }
