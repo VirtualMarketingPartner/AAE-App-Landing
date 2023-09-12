@@ -1,3 +1,15 @@
+label {
+  font-weight: bold;
+}
+
+button.btn {
+  color: white;
+}
+
+.fsBody {
+  padding: 0 20px 20px;
+}
+
 form.fsForm {
   margin: 0 auto !important;
   padding: 0 !important;
@@ -63,4 +75,31 @@ form.fsForm .fsProgress div.fsProgressText {
 
 form.fsForm .fsProgress div.fsProgressBar {
   background-color: var(--gold-lt);
+}
+
+#introFields .clickMe legend {
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-size: 100% !important;
+}
+
+#introFields label.btn {
+  font-size: 0;
+  line-height: 0;
+}
+
+#introFields label.btn span {
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  padding: 15px 20px;
+}
+
+#introFields label.btn input {
+  height: 0;
+  width: 0;
+}
+
+#introFields label.btn:not(.btn-secondary):hover {
+  color: var(--white);
 }
