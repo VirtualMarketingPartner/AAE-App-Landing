@@ -1,26 +1,72 @@
-$(document).ready(function(){
-});
-
-$(window).on("load scroll resize", function() {
-
-    windowH = $(window).height();
-
-    $('body').height( windowH );
-
-});
-
 $('body').fadeIn(600);
 
-$(document).ready(function(){
+$(window).on("load scroll resize", function() {
+    windowH = $(window).height();
+    $('body').height(windowH);
+});
 
+$(document).ready(function() {
+
+    // Function to check if the cookie exists
+    function checkReturningUserCookie() {
+        var cookies = document.cookie.split("; ");
+        for (var i = 0; i < cookies.length; i++) {
+            if (cookies[i].includes("returningUser=true")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Function to set or update the cookie
+    function setReturningUserCookie() {
+        var expirationDate = new Date();
+        expirationDate.setFullYear(expirationDate.getFullYear() + 10);
+        document.cookie = "returningUser=true; expires=" + expirationDate.toUTCString() + "; path=/";
+    }
+
+    // Handling the click event on the "Returning User" button
+    $('body').on('click', '.returning_user_btn', function() {
+        if (checkReturningUserCookie()) {
+            setReturningUserCookie(); // Update the cookie's timestamp
+            
+            $('.fsBody.fsEmbed').hide(); // Hide the form
+            
+            if ($('#loadingMessage').length === 0) { 
+                $('.fsBody.fsEmbed').before('<div id="loadingMessage"><b>We are redirecting you to our database...</b></div>'); 
+            }
+            
+            setTimeout(function() {
+                window.location.href = "https://allergyasthmanetwork.shinyapps.io/asthma-dashboard-v3-main/";
+            }, 1000);
+        }
+    });
+
+    // Handling the click event on the "Submit Form" button
+    $('body').on('click', '#fsSubmitButton5408173', function() {
+        // Check if one of the specified answers is selected
+        if ($('#field150832136_1').prop('checked') || $('#field150832136_2').prop('checked')) {
+            setReturningUserCookie(); // Set the cookie if criteria are met
+        }
+    });
+
+    // Happy Coding :)
 
     // Button & Field inputs -- add to FS form
-    var email = $("#field150832089");
-    var emailWrapper = $("#fsRow5408173-2");
+    var formEmail = $("#field150832089");
+    // var emailUsersWrapper = $("#fsSection151244438");
+    // var emailWrapper = $("#fsRow5408173-2");
     var userStatusWrapper = $('#label150832072');
-    var returning_user = $("input[value|='returning_user']") ;
-    var new_user = $("input[value|='new_user']") ;
+    var returning_user = $("input[value|='returning_user']");
+    var new_user = $("input[value|='new_user']");
     var nextBtn = $('.fsNextButton');
+
+
+    $("#email_address").keyup(function(){
+        email = $(this).val();
+        $(formEmail).val(email);
+    });
+
 
     // Set up custom classes for field inputs
     $(returning_user).addClass('user_status returning_user');
@@ -29,52 +75,9 @@ $(document).ready(function(){
     $('.new_user').parents('label').addClass('new_user_btn radio-btn btn btn-large btn-secondary').append('<span>New User</span>');
     
     // Append form elements to the login box
-    $(emailWrapper).appendTo('#introFields');
+    // $(emailUsersWrapper).appendTo('#introFields');
+    // $(emailWrapper).appendTo('#introFields');
     $(userStatusWrapper).appendTo('#introFields');
     $(userStatusWrapper).addClass('clickMe').attr('data-bs-toggle', 'modal').attr('data-bs-target', '#questionnaire');
 
-
-    // // Check User Status to confirm FS logic
-    // $(nextBtn).on('click', function(){
-    //     console.log( userStatus );
-    //     if( userStatus == 'new_user'){
-    //         // $(page4).remove();
-    //     }else{
-    //         // $(page2).remove();
-    //         // $(page3).remove();
-
-    //         // Set a cookie
-    //         // document.cookie = "login=true; expires=Thu, 18 Dec 2023 12:00:00 UTC";
-
-    //     }
-    // });
-
-
-
-
 });
-
-/**
- * Login: Use the answers to the first 2 questions from FS to create your cookies
- * 
- * Check for a cookie. 
- * If login=true;
- *  Assume Returning User
- *  Check cookies again
- *  If date of last login is greater than 30 days
- *      Check cookies again
- *      If Last Login Date cookie exists
- *          Update Last Login Date cookie
- *          Redirect page
- *      Else
- *          Set Last Login Date cookie
- *          Show Returning User Form
- * 
- *  Else
- *      Update last login cookie
- *      Redirect Page
- * Else
- *  Assume New User
- *  Set a cookie "login=true"
- *  Show New User popup
- */
