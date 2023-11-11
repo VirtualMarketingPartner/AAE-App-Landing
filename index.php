@@ -11,7 +11,9 @@
 						<br/>
 						<form id="introFields">
 							<div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="" lang="en" fs-field-type="email" fs-field-validation-name="Email">
+
 																																<label id="email_label" class="fsLabel fsRequiredLabel" for="email_address">Email<span class="fsRequiredMarker">*</span></label>						
+
 													
 								<input type="email" id="email_address" name="email_address" size="50" required="required" value="" class="fsField fsFormatEmail fsRequired" aria-required="true">
 							</div>
