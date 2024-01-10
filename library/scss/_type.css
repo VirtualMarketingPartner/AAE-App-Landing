@@ -31,6 +31,10 @@ p {
   margin-bottom: 20px;
 }
 
+p.large {
+  font-size: 120%;
+}
+
 .light {
   font-weight: 400;
 }

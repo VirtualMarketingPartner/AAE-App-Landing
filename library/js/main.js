@@ -72,7 +72,7 @@ $(document).ready(function() {
     $(returning_user).addClass('user_status returning_user');
     $(new_user).addClass('user_status new_user');
     $('.returning_user').parents('label').addClass('returning_user_btn radio-btn btn btn-large').append('<span>Returning User</span>');
-    $('.new_user').parents('label').addClass('new_user_btn radio-btn btn btn-large btn-secondary').append('<span>New User TEST</span>');
+    $('.new_user').parents('label').addClass('new_user_btn radio-btn btn btn-large btn-secondary').append('<span>New User</span>');
     
     // Append form elements to the login box
     // $(emailUsersWrapper).appendTo('#introFields');

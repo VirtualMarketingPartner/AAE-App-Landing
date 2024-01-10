@@ -12,9 +12,7 @@
 						<form id="introFields">
 							<div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="" lang="en" fs-field-type="email" fs-field-validation-name="Email">
 
-																																<label id="email_label" class="fsLabel fsRequiredLabel" for="email_address">Email<span class="fsRequiredMarker">*</span></label>						
-
-													
+								<label id="email_label" class="fsLabel fsRequiredLabel" for="email_address">Email<span class="fsRequiredMarker">*</span></label>											
 								<input type="email" id="email_address" name="email_address" size="50" required="required" value="" class="fsField fsFormatEmail fsRequired" aria-required="true">
 							</div>
 						</form>
@@ -26,13 +24,16 @@
 				</div><!-- .col -->
 				<div class="col-12 col-md-6" >
 					<div id="instructions" >
-						<h2>Questions?</h2>
-						<p>Contact us at <a href="mailto:research@allergyasthmanetwork.org" >research@allergyasthmanetwork.org</a> if you have any questions or comments. Any correspondences from Allergy & Asthma Network to you will be from this email address. Please check your junk folders to make sure you don't miss anything from us.</p>
-						
-						<br/>
+					<p class="large" ><strong>Discover the inequities related to community, environmental and other factors for those with asthma by using this free tool to examine those impacts down to the zip code level.</strong></p>
 
-						<h4>Stay Informed</h4>
-						<p>Consider joining Allergy & Asthma Network's research e-newsletter list to stay connected and learn about research in the pipeline. <a href="https://allergyasthmanetwork.org/research/get-involved-with-research/" target="_blank" >Click here to subscribe</a>.</p>
+					<p>Using this tool, researchers can conduct analyses of social, economic, and environmental impacts on asthma within the context of geography.</p>
+
+					<p class="large" ><strong>Quick Tips:</strong></p>
+					<ul>
+						<li>Registration is free to use this tool.</li>
+						<li>By registering you will be able to use the database and login in the future to conduct further analyses. You will also be added to our future communications for news and updates from Allergy & Asthma Network.</li>
+						<li>Contact us at <a href="mailto:research@allergyasthmanetwork.org" >research@allergyasthmanetwork.org</a> if you have any questions or comments regarding this free tool.</li>
+					</ul>
 					</div>
 				</div><!-- .col -->
 			</div><!-- .row -->
