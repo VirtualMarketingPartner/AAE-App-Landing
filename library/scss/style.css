@@ -106,6 +106,7 @@ p.large {
   --grey-md: #6C6C6C;
   --grey-lt: #ccc;
   --white: #fff;
+  --alert-red: #ce5f6d;
 }
 
 body {
@@ -224,6 +225,16 @@ form.fsForm .fsProgress div.fsProgressBar {
 
 #introFields label.btn:not(.btn-secondary):hover {
   color: var(--white);
+}
+
+input.warning {
+  border: 3px solid var(--alert-red) !important;
+}
+
+input.warning + .alert-msg {
+  color: var(--alert-red);
+  display: block !important;
+  font-size: 75%;
 }
 
 body {

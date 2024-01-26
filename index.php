@@ -14,6 +14,7 @@
 
 								<label id="email_label" class="fsLabel fsRequiredLabel" for="email_address">Email<span class="fsRequiredMarker">*</span></label>											
 								<input type="email" id="email_address" name="email_address" size="50" required="required" value="" class="fsField fsFormatEmail fsRequired" aria-required="true">
+								<span class="alert-msg" style="display: none;" >Please sign in with your email address to access the database</span>
 							</div>
 						</form>
 						

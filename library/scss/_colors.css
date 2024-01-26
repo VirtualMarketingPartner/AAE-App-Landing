@@ -1,0 +1,25 @@
+:root {
+  --gold: #EBA900;
+  --gold-lt: #fcbe23;
+  --blue: #4e738a;
+  --blue-dk: #415364;
+  --black: #3a3a3a;
+  --grey: #a3a3a3;
+  --grey-dk: #434343;
+  --grey-md: #6C6C6C;
+  --grey-lt: #ccc;
+  --white: #fff;
+  --alert-red: #ce5f6d;
+}
+
+body {
+  color: var(--black);
+}
+
+body a {
+  color: var(--blue);
+}
+
+.text-grey {
+  color: var(--grey);
+}

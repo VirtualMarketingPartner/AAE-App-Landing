@@ -104,3 +104,15 @@ form.fsForm{
     }
 
 }
+
+input{
+    &.warning{
+        border: 3px solid var(--alert-red) !important;
+    }
+
+    &.warning + .alert-msg{
+        color: var(--alert-red);
+        display: block !important;
+        font-size: 75%;
+    }
+}

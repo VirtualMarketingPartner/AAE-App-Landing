@@ -7,6 +7,14 @@ $(window).on("load scroll resize", function() {
 
 $(document).ready(function() {
 
+    $('body').on('click', '.radio-btn', function(){
+        if( $('#email_address').val().length === 0 ){
+            $('#email_address').addClass('warning');
+        }else{
+            $(userStatusWrapper).attr('data-bs-target', '#questionnaire');
+        }
+    });
+
     // Function to check if the cookie exists
     function checkReturningUserCookie() {
         var cookies = document.cookie.split("; ");
@@ -33,7 +41,7 @@ $(document).ready(function() {
             $('.fsBody.fsEmbed').hide(); // Hide the form
             
             if ($('#loadingMessage').length === 0) { 
-                $('.fsBody.fsEmbed').before('<div id="loadingMessage"><b>We are redirecting you to our database...</b></div>'); 
+                $('.fsBody.fsEmbed').before('<div id="loadingMessage"><b>You are now being redirected to the database, please wait...</b></div>'); 
             }
             
             setTimeout(function() {
@@ -78,6 +86,6 @@ $(document).ready(function() {
     // $(emailUsersWrapper).appendTo('#introFields');
     // $(emailWrapper).appendTo('#introFields');
     $(userStatusWrapper).appendTo('#introFields');
-    $(userStatusWrapper).addClass('clickMe').attr('data-bs-toggle', 'modal').attr('data-bs-target', '#questionnaire');
+    $(userStatusWrapper).addClass('clickMe').attr('data-bs-toggle', 'modal');
 
 });
