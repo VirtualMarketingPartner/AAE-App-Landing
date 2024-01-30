@@ -4,7 +4,7 @@ label{
 
 button.btn{color: white;}
 
-.fsBody{padding: 0 20px 20px;}
+.fsBody{padding: 0;}
 
 form.fsForm{
  margin: 0 auto !important;   
@@ -16,6 +16,7 @@ form.fsForm{
 
     div.fsSectionHeader{
         padding: 0;
+        margin: 0 !important;
         background: transparent;
         
         h2{
@@ -53,6 +54,12 @@ form.fsForm{
         padding: 0;
     }
 
+    .fsSubmitButton{
+        float:right;
+        border-radius: 20px !important;
+        padding: 15px;
+    }
+
     .fsProgress{
         div.fsProgressBarContainer{
             height: 40px;
@@ -82,15 +89,12 @@ form.fsForm{
         font-size: 100% !important;
     }
 
-    label.btn{
-        font-size: 0;
-        line-height: 0;
+    .btn{
 
         span{
             font-size: 16px;
             font-weight: 600;
             display: block;
-            padding: 15px 20px;
         }
 
         input{
@@ -102,6 +106,7 @@ form.fsForm{
             color: var(--white);
         }
     }
+    
 
 }
 

@@ -7,7 +7,7 @@ button.btn {
 }
 
 .fsBody {
-  padding: 0 20px 20px;
+  padding: 0;
 }
 
 form.fsForm {
@@ -20,6 +20,7 @@ form.fsForm {
 
 form.fsForm div.fsSectionHeader {
   padding: 0;
+  margin: 0 !important;
   background: transparent;
 }
 
@@ -58,6 +59,12 @@ form.fsForm .fsSubmit {
   padding: 0;
 }
 
+form.fsForm .fsSubmitButton {
+  float: right;
+  border-radius: 20px !important;
+  padding: 15px;
+}
+
 form.fsForm .fsProgress div.fsProgressBarContainer {
   height: 40px;
   border-radius: 50px;
@@ -83,24 +90,18 @@ form.fsForm .fsProgress div.fsProgressBar {
   font-size: 100% !important;
 }
 
-#introFields label.btn {
-  font-size: 0;
-  line-height: 0;
-}
-
-#introFields label.btn span {
+#introFields .btn span {
   font-size: 16px;
   font-weight: 600;
   display: block;
-  padding: 15px 20px;
 }
 
-#introFields label.btn input {
+#introFields .btn input {
   height: 0;
   width: 0;
 }
 
-#introFields label.btn:not(.btn-secondary):hover {
+#introFields .btn:not(.btn-secondary):hover {
   color: var(--white);
 }
 

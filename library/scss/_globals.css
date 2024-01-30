@@ -8,7 +8,7 @@ body {
 
 .container {
   max-width: 1200px;
-  padding: 0 5%;
+  padding: 0;
 }
 
 section {
@@ -33,7 +33,7 @@ h3 {
 }
 
 #login-wrapper {
-  margin: 5% auto;
+  margin: 0;
   padding: 0;
 }
 
@@ -61,4 +61,8 @@ h3 {
 
 #instructions a {
   color: var(--off-white);
+}
+
+#redirecting-msg {
+  display: none;
 }

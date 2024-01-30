@@ -1,6 +1,6 @@
 <?php include_once('header.php'); ?>
 
-<section class="container-fluid" >
+<section class="container-fluid" style="display: flex; align-items: center">
 	<div class="container" >
 		<div class="card" id="login-wrapper" >
 			<div class="row" >
@@ -11,10 +11,15 @@
 						<br/>
 						<form id="introFields">
 							<div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="" lang="en" fs-field-type="email" fs-field-validation-name="Email">
-
 								<label id="email_label" class="fsLabel fsRequiredLabel" for="email_address">Email<span class="fsRequiredMarker">*</span></label>											
 								<input type="email" id="email_address" name="email_address" size="50" required="required" value="" class="fsField fsFormatEmail fsRequired" aria-required="true">
-								<span class="alert-msg" style="display: none;" >Please sign in with your email address to access the database</span>
+								<span class="alert-msg" style="display: none;" >Please provide your email address to access the database</span>
+
+								<p>Enter your email address, then choose either "New User" or "Returning User".</p>
+								<div class="btn-wrapper" >
+									<div  class="radio-btn btn btn-large btn-secondary user-choice-btn" id="new-user" data-bs-toggle="modal" ><span>New User</span></div>
+									<div class="radio-btn btn btn-large user-choice-btn" id="returning-user" data-bs-toggle="modal" ><span>Returning User</span></div>
+								</div>
 							</div>
 						</form>
 						
@@ -42,9 +47,9 @@
 
 		<?php include_once('partials/modal-form.php'); ?>
 
-		
-
 	</div><!-- .container -->
 </section><!-- .container-fluid -->
+
+<div id="hold" style="display: none !important;" ></div>
 
 <?php include_once('footer.php'); ?>

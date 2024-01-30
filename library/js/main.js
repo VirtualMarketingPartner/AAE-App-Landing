@@ -5,87 +5,200 @@ $(window).on("load scroll resize", function() {
     $('body').height(windowH);
 });
 
-$(document).ready(function() {
 
-    $('body').on('click', '.radio-btn', function(){
-        if( $('#email_address').val().length === 0 ){
-            $('#email_address').addClass('warning');
-        }else{
-            $(userStatusWrapper).attr('data-bs-target', '#questionnaire');
-        }
-    });
+/**** FORM VARS ****/
+var newUserBtn = $('#new-user');
+var newUserToggle = $('#field150832072_1');
+var rUserBtn = $('#returning-user');
+var rUserToggle = $('#field150832072_2');
+var newEmail = $('#email_address');
 
-    // Function to check if the cookie exists
-    function checkReturningUserCookie() {
-        var cookies = document.cookie.split("; ");
-        for (var i = 0; i < cookies.length; i++) {
-            if (cookies[i].includes("returningUser=true")) {
-                return true;
-            }
-        }
-        return false;
+var formEmail = $('#field150832089');
+var formEmailV = formEmail.val();
+var orgF = $('#field149752909');
+var orgV = orgF.val();
+var fnF = $('#field149752881-first');
+var fnV = fnF.val();
+var lnF = $('#field149752881-last');
+var lnV = lnF.val();
+var roleF = $('#field150832190');
+var roleV = roleF.val();
+var buseF = $('#field149752996');
+var buseV = buseF.val();
+var phoneF = $('#field149753000');
+var phoneV = phoneF.val();
+var dataF = $('#field149753014');
+var dataV = dataF.val();
+var orgTypeF = $('#field149752908');
+var orgTypeV = orgTypeF.val();
+var countryF = $('#field149752948');
+var countryV = countryF.val();
+var zipF = $('#field149752986');
+var zipV = zipF.val();
+
+var firstSection = $('#fsSection151244438');
+var accessSection = $('#fsSection150832092');
+var yourInfoSection = $('#fsSection149754138');
+var orgInfoSection = $('#fsSection149754158');
+var submit = $('#fsSubmitButton5408173');
+
+var cookiesPresent = 0;
+
+
+/**** REPLACE FS FORM ELEMENTS ****/
+$(newUserBtn).on('click', function(){
+    $('.fsNextButton').show();
+    $(newUserToggle).prop("checked", true); 
+});
+$(rUserBtn).on('click', function(){
+    $('.fsNextButton').hide();
+    $(rUserToggle).prop("checked", true); 
+});
+$(newEmail).keyup(function(){
+    email = $(this).val();
+    $(formEmail).val(email);
+    $(this).removeClass('warning');
+    $('.user-choice-btn').attr('data-bs-target', '#questionnaire');
+});
+
+
+/**** FORM NAVIGATION ****/
+// Force user to select new or returning; require email to proceed
+$('.user-choice-btn').on('click', function(){
+    checkForCookies();
+    if( $(newEmail).val().length === 0 ){
+        $(newEmail).addClass('warning');
+    }else if( cookiesPresent === 0){
+        // show the form
+        $(orgF).add(fnF).add(lnF).add(roleF).add(buseF).add(phoneF).add(dataF).add(orgTypeF).add(countryF).add(zipF).prop('required', true).addClass('fsRequired');
+        console.log('no cookies, show the form');
+    }else if( cookiesPresent === 1){
+        // submit form
+        // console.log('found some cookies, submit the form');
+        $('#redirecting-msg').show();
+        $('#fsForm5408173').submit();
+        getCookieValue();
+        setReturningUserCookie();
+
     }
-
-    // Function to set or update the cookie
-    function setReturningUserCookie() {
-        var expirationDate = new Date();
-        expirationDate.setFullYear(expirationDate.getFullYear() + 10);
-        document.cookie = "returningUser=true; expires=" + expirationDate.toUTCString() + "; path=/";
-    }
-
-    // Handling the click event on the "Returning User" button
-    $('body').on('click', '.returning_user_btn', function() {
-        if (checkReturningUserCookie()) {
-            setReturningUserCookie(); // Update the cookie's timestamp
-            
-            $('.fsBody.fsEmbed').hide(); // Hide the form
-            
-            if ($('#loadingMessage').length === 0) { 
-                $('.fsBody.fsEmbed').before('<div id="loadingMessage"><b>You are now being redirected to the database, please wait...</b></div>'); 
-            }
-            
-            setTimeout(function() {
-                window.location.href = "https://allergyasthmanetwork.shinyapps.io/asthma-dashboard-v3-main/";
-            }, 1000);
-        }
-    });
-
-    // Handling the click event on the "Submit Form" button
-    $('body').on('click', '#fsSubmitButton5408173', function() {
-        // Check if one of the specified answers is selected
-        if ($('#field150832136_1').prop('checked') || $('#field150832136_2').prop('checked')) {
-            setReturningUserCookie(); // Set the cookie if criteria are met
-        }
-    });
-
-    // Happy Coding :)
-
-    // Button & Field inputs -- add to FS form
-    var formEmail = $("#field150832089");
-    // var emailUsersWrapper = $("#fsSection151244438");
-    // var emailWrapper = $("#fsRow5408173-2");
-    var userStatusWrapper = $('#label150832072');
-    var returning_user = $("input[value|='returning_user']");
-    var new_user = $("input[value|='new_user']");
-    var nextBtn = $('.fsNextButton');
-
-
-    $("#email_address").keyup(function(){
-        email = $(this).val();
-        $(formEmail).val(email);
-    });
-
-
-    // Set up custom classes for field inputs
-    $(returning_user).addClass('user_status returning_user');
-    $(new_user).addClass('user_status new_user');
-    $('.returning_user').parents('label').addClass('returning_user_btn radio-btn btn btn-large').append('<span>Returning User</span>');
-    $('.new_user').parents('label').addClass('new_user_btn radio-btn btn btn-large btn-secondary').append('<span>New User</span>');
     
-    // Append form elements to the login box
-    // $(emailUsersWrapper).appendTo('#introFields');
-    // $(emailWrapper).appendTo('#introFields');
-    $(userStatusWrapper).appendTo('#introFields');
-    $(userStatusWrapper).addClass('clickMe').attr('data-bs-toggle', 'modal');
+});
+// Hide the repeated form sections and advanced sections until needed
+$(submit).appendTo('#hold');
+$(firstSection).hide();
+$(yourInfoSection).add(orgInfoSection).hide();
 
+
+// advancing the form with next and previous clicks
+$('.fsNextButton').on('click', function(){
+    $(this).hide();
+    $(accessSection).hide();
+    $(submit).prependTo('.fsSubmit');
+    $('.fsPreviousButton').show();
+    $(yourInfoSection).add(orgInfoSection).show();
+});
+
+$('.fsPreviousButton').on('click', function(){
+    $(this).hide();
+    $(accessSection).show();
+    $('.fsNextButton').show();
+    $(yourInfoSection).add(orgInfoSection).hide();
+});
+
+
+
+/**** COOKIE SETUP ****/
+// Set up a cookie to store basic info
+function setReturningUserCookie() {
+    var expirationDate = new Date();
+    var user = document.getElementById('email_address').value;
+    var fn = document.getElementById('field149752881-first').value;
+    var ln = document.getElementById('field149752881-last').value;
+    var org = document.getElementById('field149752909').value;
+    
+    var aeeRU = encodeURIComponent(user);
+    var aeeRUfn = encodeURIComponent(fn);
+    var aeeRUln = encodeURIComponent(ln);
+    var aeeRUorg = encodeURIComponent(org);
+
+    var expirationDate = new Date();
+    expirationDate.setFullYear(expirationDate.getFullYear() + 10);
+    var expiresString = "expires=" + expirationDate.toUTCString();
+
+    console.log("Email: "+aeeRU+", FN: "+aeeRUfn+", LN: "+aeeRUln+", ORG: "+aeeRUorg);
+
+    document.cookie = "aeeRU=" + aeeRU + "; " + expiresString + "; path=/";
+    document.cookie = "aeeRUfn=" + aeeRUfn + "; " + expiresString + "; path=/";
+    document.cookie = "aeeRUln=" + aeeRUln + "; " + expiresString + "; path=/";
+    document.cookie = "aeeRUorg=" + aeeRUorg + "; " + expiresString + "; path=/";
+}
+
+// Check Cookies
+function checkForCookies() {
+    // Function to get the value of a specific cookie by name
+    function getCookieValue(cookieName) {
+        var name = cookieName + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) === ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    // Check for each cookie
+    var aeeRU = getCookieValue('aeeRU');
+    var aeeRUfn = getCookieValue('aeeRUfn');
+    var aeeRUln = getCookieValue('aeeRUln');
+    var aeeRUorg = getCookieValue('aeeRUorg');
+
+    if (aeeRU || aeeRUfn || aeeRUln || aeeRUorg) {
+        console.log("Found cookies: ", { aeeRU, aeeRUfn, aeeRUln, aeeRUorg });
+
+        newEmail.val(aeeRU);
+        formEmail.val(aeeRU);
+        orgF.val(aeeRUorg);
+        fnF.val(aeeRUfn);
+        lnF.val(aeeRUln);
+
+        cookiesPresent = 1;
+        return { aeeRU, aeeRUfn, aeeRUln, aeeRUorg };
+
+    } else {
+        // console.log("No relevant cookies found");
+         cookiesPresent = 0;
+        // return null;
+    }
+}
+
+
+
+
+/**** VALIDATE & SUBMIT ****/
+// Submit & Store the Cookies
+$(submit).on('click', function(){
+    if( $('#email_address').val().length === 0 ){
+        $(newEmail).addClass('warning');
+        // do not update cookie
+    }else{
+        // check for cookies
+        if( cookiesPresent === 1){
+            // submit form
+            // console.log('found some cookies, submit the form');
+            $('#redirecting-msg').show();
+            $('#fsForm5408173').submit();
+            getCookieValue();
+        }else if( cookiesPresent === 0){
+            // require form entry & set the cookie
+            // console.log('no cookies at final validation check');
+            setReturningUserCookie();
+
+        }
+    }
 });
