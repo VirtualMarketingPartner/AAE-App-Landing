@@ -7,21 +7,11 @@
 				<div class="col-12 col-md-6" >
 					<div id="login" >
 						<img src="library/img/AAN_logo.webp" alt="Allergy Asthma Network Logo" id="logo" />
-						<h1>Welcome to the Asthma Equity Explorer</h1>
-						<br/>
-						<form id="introFields">
-							<div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="" lang="en" fs-field-type="email" fs-field-validation-name="Email">
-								<label id="email_label" class="fsLabel fsRequiredLabel" for="email_address">Email<span class="fsRequiredMarker">*</span></label>											
-								<input type="email" id="email_address" name="email_address" size="50" required="required" value="" class="fsField fsFormatEmail fsRequired" aria-required="true">
-								<span class="alert-msg" style="display: none;" >Please provide your email address to access the database</span>
+						<h1>Oops! The Asthma Equity Explorer is offline for maintenance</h1>
+						<br />
+						<h3>We’ll be back later this week</h3>
 
-								<p>Enter your email address, then choose either "New User" or "Returning User".</p>
-								<div class="btn-wrapper" >
-									<div  class="radio-btn btn btn-large btn-secondary user-choice-btn" id="new-user" data-bs-toggle="modal" ><span>New User</span></div>
-									<div class="radio-btn btn btn-large user-choice-btn" id="returning-user" data-bs-toggle="modal" ><span>Returning User</span></div>
-								</div>
-							</div>
-						</form>
+						<br />
 						
 						<div id="terms" >
 							<p class="text-grey text-center small" >By continuing, you agree to the Allergy & Asthma Network <br/><a href="/terms.php" target="_blank" >Terms and Conditions of Use</a>.</p>
