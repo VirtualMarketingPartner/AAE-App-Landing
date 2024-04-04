@@ -1,6 +1,68 @@
+/* ==========================================
+	Responsive Styles
+========================================== */
 
-@media all and (max-width: 992px) {
-    #instructions{
-        padding: 50px;
+  /////////////////////////////////
+ //  Mobile - Smallest screens  //
+/////////////////////////////////
+@media all and (max-width: 580px) {}
+
+
+
+  ////////////////////////
+ //  Mobile - Default  //
+////////////////////////
+@media all and (max-width: 768px) {
+    .modal{
+        max-height: 600px;
+        overflow: scroll;
+    }
+    .btn{
+        display: block; 
+        padding: 15px;
+    }
+    .btn:nth-of-type(even){margin:20px 0;}
+
+    form.fsForm{
+        .fsNextButton,
+        .fsPreviousButton{
+            display: block;
+            width: 100%;
+
+            .fsFull{display: block !important;}
+            &:before{display: none; content:'';}
+        }
     }
 }
+
+  ////////////////////////
+ //  Mobile - Tablets  //
+////////////////////////
+@media all and (min-width: 768px) {
+    section.container-fluid{
+        display: flex; 
+        align-items: center;
+    }
+    #instructions,
+    #login{padding: 50px;}
+}
+
+
+  ////////////////////////
+ //  Mobile - Desktop  //
+////////////////////////
+@media all and (min-width: 992px) {}
+
+
+
+  //////////////////////////////
+ //  Mobile - Large Screens  //
+//////////////////////////////
+@media all and (min-width: 1200px) {}
+
+
+
+  /////////////////////////////////////
+ //  Mobile - Really Large Screens  //
+/////////////////////////////////////
+@media all and (max-width: 1400px){}

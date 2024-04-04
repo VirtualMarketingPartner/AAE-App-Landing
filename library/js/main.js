@@ -70,12 +70,14 @@ $('.user-choice-btn').on('click', function(){
         $(newEmail).addClass('warning');
     }else if( cookiesPresent === 0){
         // show the form
+        $('.fsNextButton').show();
         $(orgF).add(fnF).add(lnF).add(roleF).add(buseF).add(phoneF).add(dataF).add(orgTypeF).add(countryF).add(zipF).prop('required', true).addClass('fsRequired');
         console.log('no cookies, show the form');
     }else if( cookiesPresent === 1){
         // submit form
-        // console.log('found some cookies, submit the form');
+        console.log('found some cookies, submit the form');
         $('#redirecting-msg').show();
+        $(rUserToggle).prop("checked", true); 
         $('#fsForm5408173').submit();
         getCookieValue();
         setReturningUserCookie();
@@ -158,7 +160,7 @@ function checkForCookies() {
     var aeeRUln = getCookieValue('aeeRUln');
     var aeeRUorg = getCookieValue('aeeRUorg');
 
-    if (aeeRU || aeeRUfn || aeeRUln || aeeRUorg) {
+    if (aeeRU && aeeRUfn && aeeRUln && aeeRUorg) {
         console.log("Found cookies: ", { aeeRU, aeeRUfn, aeeRUln, aeeRUorg });
 
         newEmail.val(aeeRU);
