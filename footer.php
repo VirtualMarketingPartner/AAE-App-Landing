@@ -8,7 +8,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <link rel="stylesheet" href="library/scss/style.css" >
+
 <script src="library/js/main.js" ></script>
 
 </html>

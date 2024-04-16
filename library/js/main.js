@@ -61,7 +61,6 @@ $(newEmail).keyup(function(){
     $('.user-choice-btn').attr('data-bs-target', '#questionnaire');
 });
 
-
 /**** FORM NAVIGATION ****/
 // Force user to select new or returning; require email to proceed
 $('.user-choice-btn').on('click', function(){
@@ -83,13 +82,12 @@ $('.user-choice-btn').on('click', function(){
         setReturningUserCookie();
 
     }
-    
 });
+
 // Hide the repeated form sections and advanced sections until needed
 $(submit).appendTo('#hold');
 $(firstSection).hide();
 $(yourInfoSection).add(orgInfoSection).hide();
-
 
 // advancing the form with next and previous clicks
 $('.fsNextButton').on('click', function(){
@@ -107,7 +105,39 @@ $('.fsPreviousButton').on('click', function(){
     $(yourInfoSection).add(orgInfoSection).hide();
 });
 
-
+// POST call to Salesforce Database Endpoint
+$('#submitEmail').on('click', function(){
+    var email = document.getElementById('sf_email_address').value;
+    if (email) {
+        $.ajax({
+            url: 'jwt_auth.php', // Make sure this points to your PHP script that checks Salesforce
+            type: 'POST',
+            data: { email: email },
+            success: function(response) {
+                console.log("Received response:", response); 
+                if (response === "Email exists in Salesforce DB") {
+                    $('#result').html("Please wait while we redirect you to our database ...");
+                    window.location.href = 'https://allergyasthmanetwork.shinyapps.io/asthma-dashboard-v3-main/';
+                } else if (response === "Email does not exist in Salesforce DB") {
+                    // Trigger the modal only if email does not exist in Salesforce DB
+                    // $('.submit-btn').attr('data-bs-target', '#questionnaire');
+                    $('#questionnaire').modal('show'); 
+                    $(firstSection).show();
+                    $('.fsNextButton').show(); 
+                } else {
+                    // Handle other unexpected responses or log them for further analysis
+                    console.error("Unexpected response:", response);
+                    $('#result').html("Unexpected error occurred. Please refresh the page and try again.");
+                }
+            },
+            error: function() {
+                $('#result').html("Failed to check the email. Please try again.");
+            }
+        });
+    } else {
+        $('#result').html("Please enter a valid email address.");
+    }
+});
 
 /**** COOKIE SETUP ****/
 // Set up a cookie to store basic info
@@ -178,9 +208,6 @@ function checkForCookies() {
         // return null;
     }
 }
-
-
-
 
 /**** VALIDATE & SUBMIT ****/
 // Submit & Store the Cookies
