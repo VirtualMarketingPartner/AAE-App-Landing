@@ -17,8 +17,6 @@
 
 								<p>Enter your email address and click "Submit".</p>
 								<div class="btn-wrapper">
-									<!-- <div  class="radio-btn btn btn-large btn-secondary user-choice-btn" id="new-user" data-bs-toggle="modal" ><span>New User</span></div>
-									<div class="radio-btn btn btn-large user-choice-btn" id="returning-user" data-bs-toggle="modal" ><span>Returning User</span></div> -->
                                     <div class="radio-btn btn btn-large btn-secondary submit-btn" id="submitEmail" data-bs-toggle="modal"><span>Submit</span></div>
                                     <div id="result" style="font-weight: 500; font-size: 13px; color: darkred;"></div>
 								</div>

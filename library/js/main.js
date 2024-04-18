@@ -105,10 +105,17 @@ $('.fsPreviousButton').on('click', function(){
     $(yourInfoSection).add(orgInfoSection).hide();
 });
 
+// Email Validation
+function validateEmail(email) {
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
+
 // POST call to Salesforce Database Endpoint
 $('#submitEmail').on('click', function(){
     var email = document.getElementById('sf_email_address').value;
-    if (email) {
+    if (email && validateEmail(email)) {
+        $('#result').html("");  // Clear any error messages
         $.ajax({
             url: 'jwt_auth.php', // Make sure this points to your PHP script that checks Salesforce
             type: 'POST',
