@@ -44,9 +44,17 @@ form.fsForm{
     .fsSubmit input.fsSubmitMultipage,
     .fsPreviousButton, 
     .fsNextButton{
-        padding: 15px 30px !important;
+        padding: 5px 20px !important;
         border-radius: 50px !important;
         background-color: var(--blue) !important;
+        border: none;
+        float: right;
+        color: white;
+    }
+
+    .fsPreviousButton {
+        float: left;
+        color: white;
     }
 
     .fsSubmit{
@@ -57,7 +65,8 @@ form.fsForm{
     .fsSubmitButton{
         float:right;
         border-radius: 20px !important;
-        padding: 15px;
+        padding: 5px 20px;
+        background-color: var(--gold) !important;
     }
 
     .fsProgress{
