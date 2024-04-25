@@ -42,17 +42,18 @@ formFooter.appendChild(previousButton);
 formFooter.appendChild(nextButton);
 
 // Email Validation
-function validateEmail(email) {
+function validateEmail(formEmailV) {
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
+    return emailPattern.test(formEmailV);
 }
 
 $(newEmail).keyup(function(){
-    email = $(this).val();
-    $(formEmail).val(email);
+    formEmailV = $(this).val();
+    $(formEmail).val(formEmailV).keyup();
 
-    console.log("Current email value: '" + email + "'");
-    if (email.length === 0) {
+
+    console.log("Current email value: '" + formEmailV + "'");
+    if (formEmailV.length === 0) {
         console.log("Email is empty, adding warning class.");
         $(this).addClass('warning');
     } else {
@@ -90,12 +91,12 @@ $('.fsPreviousButton').on('click', function(){
 // POST call to Salesforce Database Endpoint
 $('#submitEmail').on('click', function(){
     
-    if (email && validateEmail(email)) {
+    if (formEmailV && validateEmail(formEmailV)) {
         $('#result').html("");  // Clear any error messages
         $.ajax({
             url: 'jwt_auth.php', // Make sure this points to your PHP script that checks Salesforce
             type: 'POST',
-            data: { email: email },
+            data: { email: formEmailV },
             success: function(response) {
                 console.log("Received response:", response); 
                 if (response === "Email exists in Salesforce DB") {
@@ -119,7 +120,16 @@ $('#submitEmail').on('click', function(){
     }
 });
 
-$(submit).on('click', function(){
-    formEmailV = formEmail.val();
+$(submit).on('click', function(e){
+    e.preventDefault();
     console.log("Email at submission:", formEmailV);
+    $(formEmail).val(formEmailV);
+    $('form#fsForm5728648').submit();
 });
+
+// $('form').on('submit', function(e){
+//     // validation code here
+//       e.preventDefault();
+//       formEmail.val() =
+//       console.log("Email at submission:", formEmailV);
+//   });
