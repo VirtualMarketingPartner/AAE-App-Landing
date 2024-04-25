@@ -8,7 +8,7 @@ $(window).on("load scroll resize", function() {
 /**** FORM VARS ****/
 var newEmail = $('#sf_email_address');
 var formEmail = $('#field163865448');
-var formEmailV = formEmail.val();
+var formEmailV = newEmail.val();
 var formEmailWrapper = $('#label-field163865448')
 var firstSection = $('#fsSection163865444');
 var accessSection = $('#fsSection163865452');
@@ -89,7 +89,6 @@ $('.fsPreviousButton').on('click', function(){
 
 // POST call to Salesforce Database Endpoint
 $('#submitEmail').on('click', function(){
-    formEmailV = formEmail.val();
     
     if (email && validateEmail(email)) {
         $('#result').html("");  // Clear any error messages
@@ -121,5 +120,6 @@ $('#submitEmail').on('click', function(){
 });
 
 $(submit).on('click', function(){
-    console.log("Email at submission:", $(formEmail).val());
+    formEmailV = formEmail.val();
+    console.log("Email at submission:", formEmailV);
 });
