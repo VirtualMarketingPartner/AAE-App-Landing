@@ -45,7 +45,7 @@
 			</div><!-- .row -->
 		</div><!-- .card -->
 
-		<?php include_once('partials/modal-form.php'); ?>
+		<?php include_once('partials/fs-modal.php'); ?>
 
 	</div><!-- .container -->
 </section><!-- .container-fluid -->
