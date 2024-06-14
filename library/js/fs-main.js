@@ -51,13 +51,9 @@ $(newEmail).keyup(function(){
     formEmailV = $(this).val();
     $(formEmail).val(formEmailV).keyup();
 
-
-    console.log("Current email value: '" + formEmailV + "'");
     if (formEmailV.length === 0) {
-        console.log("Email is empty, adding warning class.");
         $(this).addClass('warning');
     } else {
-        console.log("Email is not empty, removing warning class.");
         $(this).removeClass('warning');
     }
 });
@@ -68,7 +64,7 @@ $(firstSection).hide();
 $(yourInfoSection).add(orgInfoSection).hide();
 $('.fsPreviousButton').hide();
 $(submit).hide();
-// $(formEmailWrapper).hide();
+$(formEmailWrapper).hide();
 
 // advancing the form with next and previous clicks
 $('.fsNextButton').on('click', function(){
@@ -116,20 +112,13 @@ $('#submitEmail').on('click', function(){
             }
         });
     } else {
-        $('#result').html("Please enter a valid email address.");
+        // $('#result').html("Please provide your email address to access the database");
+        $(newEmail).addClass('warning');
     }
 });
 
 $(submit).on('click', function(e){
     e.preventDefault();
-    console.log("Email at submission:", formEmailV);
     $(formEmail).val(formEmailV);
     $('form#fsForm5728648').submit();
 });
-
-// $('form').on('submit', function(e){
-//     // validation code here
-//       e.preventDefault();
-//       formEmail.val() =
-//       console.log("Email at submission:", formEmailV);
-//   });

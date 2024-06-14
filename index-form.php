@@ -14,11 +14,10 @@
 								<label id="email_label" class="fsLabel fsRequiredLabel" for="sf_email_address">Email<span class="fsRequiredMarker">*</span></label>											
 								<input type="email" id="sf_email_address" name="sf_email_address" size="50" required="required" value="" class="fsField fsFormatEmail fsRequired" aria-required="true">
 								<span class="alert-msg" style="display: none;" >Please provide your email address to access the database</span>
-
-								<p>Enter your email address and click "Submit".</p>
+								<div id="result" style="font-weight: 500; font-size: 13px; color: darkred;"></div>
+								<p style="margin: 10px 0 2px;">Enter your email address and click "Submit".</p>
 								<div class="btn-wrapper">
                                     <div class="radio-btn btn btn-large btn-secondary submit-btn" id="submitEmail" data-bs-toggle="modal"><span>Submit</span></div>
-                                    <div id="result" style="font-weight: 500; font-size: 13px; color: darkred;"></div>
 								</div>
 							</div>
 						</form>
