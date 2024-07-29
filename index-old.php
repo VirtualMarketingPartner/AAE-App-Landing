@@ -11,13 +11,14 @@
 						<br/>
 						<form id="introFields">
 							<div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="" lang="en" fs-field-type="email" fs-field-validation-name="Email">
-								<label id="email_label" class="fsLabel fsRequiredLabel" for="sf_email_address">Email<span class="fsRequiredMarker">*</span></label>											
-								<input type="email" id="sf_email_address" name="sf_email_address" size="50" required="required" value="" class="fsField fsFormatEmail fsRequired" aria-required="true">
+								<label id="email_label" class="fsLabel fsRequiredLabel" for="email_address">Email<span class="fsRequiredMarker">*</span></label>											
+								<input type="email" id="email_address" name="email_address" size="50" required="required" value="" class="fsField fsFormatEmail fsRequired" aria-required="true">
 								<span class="alert-msg" style="display: none;" >Please provide your email address to access the database</span>
-								<div id="result" style="font-weight: 500; font-size: 13px; color: darkred;"></div>
-								<p style="margin: 10px 0 2px;">Enter your email address and click "Submit".</p>
-								<div class="btn-wrapper">
-                                    <div class="radio-btn btn btn-large btn-secondary submit-btn" id="submitEmail" data-bs-toggle="modal"><span>Submit</span></div>
+
+								<p>Enter your email address, then choose either "New User" or "Returning User".</p>
+								<div class="btn-wrapper" >
+									<div  class="radio-btn btn btn-large btn-secondary user-choice-btn" id="new-user" data-bs-toggle="modal" ><span>New User</span></div>
+									<div class="radio-btn btn btn-large user-choice-btn" id="returning-user" data-bs-toggle="modal" ><span>Returning User</span></div>
 								</div>
 							</div>
 						</form>
@@ -44,7 +45,7 @@
 			</div><!-- .row -->
 		</div><!-- .card -->
 
-		<?php include_once('partials/fs-modal.php'); ?>
+		<?php include_once('partials/modal-form.php'); ?>
 
 	</div><!-- .container -->
 </section><!-- .container-fluid -->
