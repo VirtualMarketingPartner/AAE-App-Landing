@@ -10,7 +10,7 @@
 <?php
 $current_page = basename($_SERVER['SCRIPT_NAME']);
 
-if ($current_page == "index-form.php") {
+if ($current_page == "index.php") {
     echo '<script src="library/js/fs-main.js"></script>';
 } else {
     echo '<script src="library/js/main.js"></script>';
