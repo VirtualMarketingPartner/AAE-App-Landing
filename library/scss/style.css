@@ -92,17 +92,17 @@ p.large {
 }
 
 :root {
-  --gold: #EBA900;
+  --gold: #FAC124;
   --gold-lt: #fcbe23;
-  --blue: #4e738a;
-  --blue-dk: #415364;
+  --blue: #025D86;
+  --blue-dk: #004767;
   --black: #3a3a3a;
   --grey: #a3a3a3;
-  --grey-dk: #434343;
+  --grey-dk: #5E737D;
   --grey-md: #6C6C6C;
   --grey-lt: #ccc;
   --white: #fff;
-  --alert-red: #ce5f6d;
+  --alert-red: #F56C2C;
 }
 
 body {
@@ -168,7 +168,7 @@ form.fsForm .fsRowBody input[type=checkbox]:checked:before {
 form.fsForm .fsSubmit input.fsSubmitMultipage,
 form.fsForm .fsPreviousButton,
 form.fsForm .fsNextButton {
-  padding: 15px 30px;
+  padding: 15px 30px !important;
   border-radius: 50px !important;
   background-color: var(--blue) !important;
 }
@@ -301,54 +301,6 @@ h3 {
 
 #redirecting-msg {
   display: none;
-}
-
-input, select {
-  padding: 7px !important;
-    font-size: 14px !important;
-    font-weight: 400 !important;
-    font-style: normal !important;
-    line-height: 14px !important;
-    color: #595d64 !important;
-    border: 1px solid #cfd4d8 !important;
-    background-color: #ffffff !important;
-    height: 38px !important;
-    border-radius: 4px;
-}
-
-#field165956035 {
-  height: auto !important;
-}
-
-#sf_email_address {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-}
-
-.StyledReferralBadge-sc-5yap1m-0.xqtmq {
-  display: none;
-}
-
-.fsNextButton {
-  border: none;
-  color: #ffffff;
-  font-size: 14px;
-  padding: 8px 30px !important;
-  float: right;
-}
-
-.fsPreviousButton {
-  border: none;
-  color: #ffffff;
-  font-size: 14px;
-  padding: 8px 30px !important;
-  float: left;
-}
-
-#fsSubmitButton5728648 {
-  background-color: #ecaa20 !important;
-  padding: 12px 30px;
 }
 
 /* ==========================================

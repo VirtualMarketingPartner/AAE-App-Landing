@@ -8,20 +8,23 @@
 					<div id="login" >
 						<img src="library/img/AAN_logo.webp" alt="Allergy Asthma Network Logo" id="logo" />
 						<h1>Welcome to the Asthma Equity Explorer</h1>
-						<br/>
+                        <br/>
 						<form id="introFields">
 							<div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="" lang="en" fs-field-type="email" fs-field-validation-name="Email">
-								<label id="email_label" class="fsLabel fsRequiredLabel" for="email_address">Email<span class="fsRequiredMarker">*</span></label>											
-								<input type="email" id="email_address" name="email_address" size="50" required="required" value="" class="fsField fsFormatEmail fsRequired" aria-required="true">
+								<label id="email_label" class="fsLabel fsRequiredLabel" for="sf_email_address">Email<span class="fsRequiredMarker">*</span></label>											
+								<input type="email" id="sf_email_address" name="sf_email_address" size="50" required="required" value="" class="fsField fsFormatEmail fsRequired" aria-required="true">
 								<span class="alert-msg" style="display: none;" >Please provide your email address to access the database</span>
-
-								<p>Enter your email address, then choose either "New User" or "Returning User".</p>
-								<div class="btn-wrapper" >
-									<div  class="radio-btn btn btn-large btn-secondary user-choice-btn" id="new-user" data-bs-toggle="modal" ><span>New User</span></div>
-									<div class="radio-btn btn btn-large user-choice-btn" id="returning-user" data-bs-toggle="modal" ><span>Returning User</span></div>
+								<div id="result" style="font-weight: 500; font-size: 13px; color: darkred;"></div>
+								<p style="margin: 10px 0 2px;">Enter your email address and click "Submit".</p>
+								<div class="btn-wrapper">
+                                    <div class="radio-btn btn btn-large btn-secondary submit-btn" id="submitEmail" data-bs-toggle="modal"><span>Submit</span></div>
 								</div>
 							</div>
 						</form>
+
+						<div class="small callout" style="border-radius: 20px 0 20px 0; background-color: var(--black); color: white; padding: 10px 20px;" >
+                            <p style="margin-bottom: 0;" >We will be performing an update to the Asthma Equity Database in early November. During the update, some features of the database may load slower or be temporarily unavailable.</p>
+                        </div>
 						
 						<div id="terms" >
 							<p class="text-grey text-center small" >By continuing, you agree to the Allergy & Asthma Network <br/><a href="/terms.php" target="_blank" >Terms and Conditions of Use</a>.</p>
@@ -45,7 +48,7 @@
 			</div><!-- .row -->
 		</div><!-- .card -->
 
-		<?php include_once('partials/modal-form.php'); ?>
+		<?php include_once('partials/fs-modal.php'); ?>
 
 	</div><!-- .container -->
 </section><!-- .container-fluid -->

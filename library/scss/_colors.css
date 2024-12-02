@@ -1,15 +1,15 @@
 :root {
-  --gold: #EBA900;
+  --gold: #FAC124;
   --gold-lt: #fcbe23;
-  --blue: #4e738a;
-  --blue-dk: #415364;
+  --blue: #025D86;
+  --blue-dk: #004767;
   --black: #3a3a3a;
   --grey: #a3a3a3;
-  --grey-dk: #434343;
+  --grey-dk: #5E737D;
   --grey-md: #6C6C6C;
   --grey-lt: #ccc;
   --white: #fff;
-  --alert-red: #ce5f6d;
+  --alert-red: #F56C2C;
 }
 
 body {
